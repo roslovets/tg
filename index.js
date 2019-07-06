@@ -1,11 +1,14 @@
 import './index.scss';
 
-if (document.getElementById('label').textContent = window.location.hash.slice(1).replace(/^https?:\/\//i, '')) {
+var lang = navigator.language || navigator.userLanguage;
 
-    /** @type {HTMLAnchorElement} */
-    var link;
-    //@ts-ignore
-    link = document.getElementById('wrapper');
+var url = window.location.hash.slice(1).replace(/^https?:\/\//i, '');
+var link = document.getElementById('wrapper');
+
+if (url) {
+
+    document.getElementById('label').textContent = url;
+
     link.href = window.location.hash.slice(1);
 
     var path = link.pathname.split('/', 3);
@@ -41,3 +44,12 @@ if (document.getElementById('label').textContent = window.location.hash.slice(1)
         window.location.href = str;
     }
 }
+else {
+    if (lang == "ru-RU")
+        var istr = "Как использовать";
+    else
+        var istr = 'How to use';
+    document.getElementById('label').textContent = istr;
+    link.href = 'https://github.com/roslovets/tg/blob/master/README.md';
+}
+link.style.display = 'inline-block';
