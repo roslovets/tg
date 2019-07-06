@@ -40,7 +40,7 @@ body
 
     min-height: 100%;
 
-    background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+    background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
 }
 
 #wrapper
@@ -75,7 +75,7 @@ body
 
     text-align: center;
 
-    color: #fd868c;
+    color: #16d9e3;
     &:after
     {
         position: absolute;
