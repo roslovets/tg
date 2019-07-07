@@ -3,23 +3,25 @@ import './index.scss';
 var lang = navigator.language || navigator.userLanguage;
 
 var url = window.location.hash.slice(1).replace(/^https?:\/\//i, '');
-var link = document.getElementById('wrapper');
+var tgopen = document.getElementById('tgopen');
+var webopen = document.getElementById('webopen');
+var target = document.getElementById('target');
 
 if (url) {
 
-    document.getElementById('label').textContent = url;
+    document.getElementById('label').textContent = 'Open in Telegram';
 
-    link.href = window.location.hash.slice(1);
+    tgopen.href = window.location.hash.slice(1);
 
-    var path = link.pathname.split('/', 3);
+    var path = tgopen.pathname.split('/', 3);
     var str = '';
 
     switch (path[1]) {
         case 'socks':
-            str = 'tg://socks' + link.search;
+            str = 'tg://socks' + tgopen.search;
             break;
         case 'share':
-            str = 'tg://msg_' + path[2] + link.search;
+            str = 'tg://msg_' + path[2] + tgopen.search;
             break;
         case 'joinchat':
             str = 'tg://join?invite=' + path[2];
@@ -28,17 +30,24 @@ if (url) {
             str = 'tg://addstickers?set=' + path[2];
             break;
         case 'proxy':
-            str = 'tg://proxy' + link.search;
+            str = 'tg://proxy' + tgopen.search;
             break;
         default:
-            str = 'tg://resolve?domain=' + path[1] + link.search.replace('?start=', '&start=');
+            str = 'tg://resolve?domain=' + path[1] + tgopen.search.replace('?start=', '&start=');
             if (path[2]) {
                 str += '&post=' + path[2];
             }
     }
 
-    link.href = str || '#';
-    link.style.display = 'inline-block';
+    tgopen.href = str || '#';
+
+    webopen.href = "https://tfeed.me/" + path[1];
+    document.getElementById('label3').textContent = 'Open in web';
+    webopen.style.display = 'inline-block';
+
+    target.href = window.location.hash.slice(1);
+    document.getElementById('label2').textContent = url;
+    target.style.display = 'inline-block';
 
     if (str) {
         window.location.href = str;
@@ -50,6 +59,6 @@ else {
     else
         var istr = 'How to use';
     document.getElementById('label').textContent = istr;
-    link.href = 'https://github.com/roslovets/tg/blob/master/README.md';
+    tgopen.href = 'https://github.com/roslovets/tg/blob/master/README.md';
 }
-link.style.display = 'inline-block';
+tgopen.style.display = 'inline-block';

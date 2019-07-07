@@ -11,7 +11,6 @@
     $u2: unit($max-vw);
     $u3: unit($min-font-size);
     $u4: unit($max-font-size);
-
     @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4
     {
         &
@@ -43,50 +42,103 @@ body
     background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
 }
 
-#wrapper
-{
+#wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
-
-    display: none;
-
-    padding: 1em;
-
     transform: translate(-50%, -50%);
-    text-decoration: none;
 
-    background-color: white;
-
-    &:hover #label:after
+    #tgopen
     {
-        width: 100%;
+        position: relative;
+        display: none;
+        padding: 0.6em 1em 0.6em 1em; 
+        text-decoration: none;
+        background-color: white;
+        &:hover #label:after
+        {
+            width: 100%;
+        }
     }
+
+    #webopen
+    {
+        position: relative;
+        display: none;
+        padding: 0.6em 1em 0.6em 1em; 
+        text-decoration: none;
+        background-color: white;
+        &:hover #label3:after
+        {
+            width: 100%;
+        }
+    }
+
+    #target 
+    {
+        position: relative;
+        top: 55%;
+        padding: 0.6em 1em 0.6em 1em; 
+        display: none;
+        text-decoration: none;
+    }
+}
+
+.buttons
+{
+    background-color: white;
+}
+
+.label
+{
+    font-family: Ubuntu,Optima,Trebuchet MS,-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size: 1em;
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 #label
 {
-    font-family: Ubuntu,Optima,Trebuchet MS,-apple-system,BlinkMacSystemFont,sans-serif;
-    font-size: 1em;
-
-    position: relative;
-
-    box-sizing: border-box;
-
-    text-align: center;
-
     color: #16d9e3;
     &:after
     {
         position: absolute;
         bottom: 0;
         left: 0;
-
         width: 0;
-
         content: '';
         transition: .4s;
-
         border-bottom: .05em solid currentColor;
     }
+}
+
+#label3
+{
+    color: #16d9e3;
+    &:after
+    {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        content: '';
+        transition: .4s;
+        border-bottom: .05em solid currentColor;
+    }
+}
+
+#label2
+{    
+    color: #ffffff;
+}
+
+.centered
+{
+    text-align: center;
+}
+
+.icon {
+  max-width: 50px;
+  height: auto;
 }
