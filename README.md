@@ -1,6 +1,6 @@
 # tg
-Аналог t.me через github pages
+Redirect Telegram links directly to the Telegram App
 
-Просто добавьте перед https://t.me/... ссылку https://taraflex.github.io/tg/#
+Just add your https://t.me/... link after https://rosloves.github.io/tg/#
 
-Должно получиться что-то в стиле https://taraflex.github.io/tg/#https://t.me/taraflex
+Example: https://roslovets.github.io/tg/#https://t.me/xuyanet
