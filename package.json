@@ -1,22 +1,23 @@
 {
   "name": "tg",
   "version": "1.0.0",
-  "description": "Аналог t.me через github pages",
+  "description": "Redirect Telegram links directly to the App",
   "main": "index.js",
   "scripts": {
+    "start": "rollup -c --watch",
     "build": "rollup -c"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Taraflex/tg.git"
+    "url": "git+https://github.com/roslovets/tg.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Pavel Roslovets",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Taraflex/tg/issues"
+    "url": "https://github.com/roslovets/tg/issues"
   },
-  "homepage": "https://github.com/Taraflex/tg#readme",
+  "homepage": "https://github.com/roslovets/tg#readme",
   "devDependencies": {
     "autoprefixer": "^9.5.0",
     "cssnano": "^4.1.10",
@@ -26,7 +27,8 @@
     "rollup": "^1.8.0",
     "rollup-plugin-bundle-html": "^0.1.5",
     "rollup-plugin-sass": "^1.2.2",
-    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-terser": "^5.1.1",
+    "rollup-watch": "^4.3.1",
     "web-resource-inliner": "^4.3.1"
   }
 }
