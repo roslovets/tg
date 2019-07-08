@@ -1,45 +1,38 @@
 @import 'normalize.css';
 
-@function strip-unit($value)
-{
+@function strip-unit($value) {
     @return $value / ($value * 0 + 1);
 }
 
-@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size)
-{
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
     $u1: unit($min-vw);
     $u2: unit($max-vw);
     $u3: unit($min-font-size);
     $u4: unit($max-font-size);
-    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4
-    {
-        &
-        {
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+        & {
             font-size: $min-font-size;
-            @media screen and (min-width: $min-vw)
-            {
+
+            @media screen and (min-width: $min-vw) {
                 font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
             }
-            @media screen and (min-width: $max-vw)
-            {
+
+            @media screen and (min-width: $max-vw) {
                 font-size: $max-font-size;
             }
         }
     }
 }
 
-html
-{
+html {
     height: 100%;
 }
 
-body
-{
-    @include fluid-type(240px, 960px, 12px, 12px * 3.5);
-
+body {
+    @include fluid-type(200px, 960px, 11px, 12px * 2);
     min-height: 100%;
-
-    background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+    background-image: radial-gradient(circle 350px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
 }
 
 #wrapper {
@@ -48,49 +41,55 @@ body
     left: 50%;
     transform: translate(-50%, -50%);
 
-    #tgopen
-    {
-        position: relative;
+    #buttons {
         display: none;
-        padding: 0.6em 1em 0.6em 1em; 
-        text-decoration: none;
-        background-color: white;
-        &:hover #label:after
-        {
-            width: 100%;
-        }
-    }
 
-    #webopen
-    {
-        position: relative;
-        display: none;
-        padding: 0.6em 1em 0.6em 1em; 
-        text-decoration: none;
-        background-color: white;
-        &:hover #label3:after
-        {
-            width: 100%;
-        }
-    }
+        #tgopen {
+            display: none;
 
-    #target 
-    {
-        position: relative;
-        top: 55%;
-        padding: 0.6em 1em 0.6em 1em; 
-        display: none;
-        text-decoration: none;
+            &:hover #tglabel:after {
+                width: 100%;
+            }
+        }
+
+        #webopen {
+            display: none;
+
+            &:hover #weblabel:after {
+                width: 100%;
+            }
+        }
+
+        #target {
+            position: relative;
+            top: 55%;
+            padding: 0.6em 1em 0.6em 1em;
+            display: none;
+            text-decoration: none;
+        }
     }
 }
 
-.buttons
-{
+a {
+    text-decoration: none;
+}
+
+.block {
+    display: block;
+}
+
+.btn {
+    position: relative;
+    padding: 0.6em 1em 0.6em 1em;
+    text-decoration: none;
     background-color: white;
 }
 
-.label
-{
+.buttons {
+    background-color: white;
+}
+
+.label {
     font-family: Ubuntu,Optima,Trebuchet MS,-apple-system,BlinkMacSystemFont,sans-serif;
     font-size: 1em;
     position: relative;
@@ -98,11 +97,10 @@ body
     text-align: center;
 }
 
-#label
-{
+.btnlabel {
     color: #16d9e3;
-    &:after
-    {
+
+    &:after {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -113,32 +111,22 @@ body
     }
 }
 
-#label3
-{
-    color: #16d9e3;
-    &:after
-    {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        content: '';
-        transition: .4s;
-        border-bottom: .05em solid currentColor;
-    }
+#instr {
+    display: none;
 }
 
-#label2
-{    
+.white {
     color: #ffffff;
 }
 
-.centered
-{
+.dark {
+    font-weight: 700;
+}
+
+.centered {
     text-align: center;
 }
 
-.icon {
-  max-width: 50px;
-  height: auto;
+.mt {
+    margin-top: 10px;
 }
