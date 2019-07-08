@@ -13,32 +13,30 @@ export default {
     input: 'index.js',
     output: {
         format: 'iife',
-        file: 'dist/bundle.js',
+        file: 'dist/bundle.js'
     },
     plugins: [
         sass({
             output: true,
             processor: css => postcss([
                 cssImport(),
-                autoprefixer({
-                    browsers: ['last 2 version', '> 0.2%', 'ie >= 11']
-                }),
+                autoprefixer(),
                 cssnano({
                     preset: ['default', { discardComments: { removeAll: true } }]
-                }),
-            ]).process(css).then(result => result.css)
+                })
+            ]).process(css, { from: undefined }).then(result => result.css)
         }),
         terser(),
         html({
             template: 'template.html',
-            filename: 'index.html',
-            inject: 'body'
+            dest: 'dist',
+            filename: 'index.html'
         }),
         {
             writeBundle() {
                 wi.html({ fileContent: fs.readFileSync('./dist/index.html', 'utf-8'), relativeTo: './dist' }, function (err, content) {
                     if (err) {
-                        console.error(err)
+                        console.error(err);
                     } else {
                         fs.writeFileSync('index.html', content);
                         fs.writeFileSync('app.appcache', 'CACHE MANIFEST\n# ' + crypto.createHash('md5').update(content).digest('base64'));
