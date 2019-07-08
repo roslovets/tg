@@ -1,7 +1,7 @@
 {
   "name": "tg",
   "version": "1.0.0",
-  "description": "Redirect Telegram links directly to the App",
+  "description": "Redirect Telegram links directly to the Telegram App",
   "main": "index.js",
   "scripts": {
     "start": "rollup -c --watch",
