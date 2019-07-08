@@ -15,6 +15,7 @@ if (url) {
 
     var path = tgopen.pathname.split('/', 3);
     var str = '';
+    var ischannel = false;
 
     switch (path[1]) {
         case 'socks':
@@ -36,14 +37,17 @@ if (url) {
             str = 'tg://resolve?domain=' + path[1] + tgopen.search.replace('?start=', '&start=');
             if (path[2]) {
                 str += '&post=' + path[2];
-            }
+            };
+            ischannel = true;
     }
 
     tgopen.href = str || '#';
 
-    webopen.href = "https://tfeed.me/" + path[1];
-    document.getElementById('label3').textContent = 'Open in web';
-    webopen.style.display = 'inline-block';
+    if (ischannel) {
+        webopen.href = "https://tfeed.me/" + path[1];
+        document.getElementById('label3').textContent = 'Open in browser';
+        webopen.style.display = 'inline-block';
+    }
 
     target.href = window.location.hash.slice(1);
     document.getElementById('label2').textContent = url;
@@ -57,7 +61,7 @@ else {
     if (lang == "ru-RU")
         var istr = "Как использовать";
     else
-        var istr = 'How to use';
+        istr = 'How to use';
     document.getElementById('label').textContent = istr;
     tgopen.href = 'https://github.com/roslovets/tg/blob/master/README.md';
 }
