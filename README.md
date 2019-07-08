@@ -1,5 +1,4 @@
-# tg
-Redirect Telegram links directly to the Telegram App
+# Telegram Redirect
 
 Just add your https://t.me/... link after https://rosloves.github.io/tg/#
 
