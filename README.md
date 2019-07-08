@@ -1,5 +1,33 @@
-# Telegram Redirect
+# Зеркало t.me/ без рекламы
 
-Just add your https://t.me/... link after https://rosloves.github.io/tg/#
+Перенаправляет ссылки типа htps://t.me/... в приложение Telegram в обход блокировок.
 
-Example: https://roslovets.github.io/tg/#https://t.me/xuyanet
+## Зачем нужно
+
+Адреса htps://t.me/... в России заблокированы, поэтому короткие Telegram-ссылки не работают.
+Чтобы обойти блокировку существуют сайты-зеркала (t-do.ru, tlgg.ru). Они решают проблему, но имеют недостатки:
+
+- вставляют рекламу
+- выполнены без чувства стиля
+
+На основе [проекта](https://github.com/Taraflex/tg) Taraflex я сделал свое зеркало, которое базируется на бесплатном хостинге GitHub Pages, поэтому не содержит рекламу и в целом отлично выглядит.
+
+## Как использовать
+
+Добавьте свою короткую ссылку https://t.me/... после https://rosloves.github.io/tg/#
+
+## Какие ссылки поддерживаются
+
+- переход на канал, к посту или к человеку (/)
+- присоединение к чату (/joinchat)
+- подключение прокси (/proxy, /socks)
+- поделиться (/share)
+- добавление стикеров (/addstickers)
+
+## Примеры
+
+Ссылка на канал
+https://roslovets.github.io/tg/#https://t.me/xuyanet
+
+Добавление стикеров
+https://roslovets.github.io/tg/#https://t.me/addstickers/xuyanet
